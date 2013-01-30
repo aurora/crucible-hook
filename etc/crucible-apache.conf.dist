@@ -1,0 +1,16 @@
+<VirtualHost 127.0.01:80>
+    ServerName crucible.example.com
+    ServerAdmin hostmaster@example.com
+
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:8060/
+    ProxyPassReverse / http://127.0.0.1:8060/
+
+    RequestHeader unset Accept-Encoding
+
+    FilterDeclare HOOK
+    FilterProvider HOOK SUBSTITUTE Content-Type $text/html
+    FilterChain +HOOK
+
+    Substitute "s|<body.*?>|<body><h2>test</h2>|i"
+</VirtualHost>

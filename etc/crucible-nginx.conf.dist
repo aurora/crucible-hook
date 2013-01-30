@@ -1,0 +1,21 @@
+server {
+    listen          80;
+    server_name     .crucible.example.com;
+
+    proxy_redirect          off;
+    proxy_set_header        Host            $host;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        Accept-Encoding "";
+
+    location /crucible-hook/ {
+        root /var/www/crucible-hook/web/vendor/;
+    }
+
+    location / {
+        subs_filter      	"</head>"    "<script type=\"text/javascript\" src=\"/crucible-hook/vendor/jquery/jquery.js\"><script type=\"text/javascript\" src=\"/crucible-hook/vendor/highlight/highlight.js\"></script><script type=\"text/javascript\" src=\"/crucible-hook/vendor/bpopup/jquery.bpopup-0.8.0.min.js\"></script><script type=\"text/javascript\" src=\"/crucible-hook/hook.js\"></script><link rel=\"stylesheet\" href="/crucible-hook/vendor/highlight/solarized_light.css" /></head>";
+
+    	proxy_pass      	http://127.0.0.1:8060;
+    	break;
+    }
+}
