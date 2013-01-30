@@ -7,7 +7,7 @@ Preface
 This is a little helper tool to hook into the UI of Atlassian Crucible to enhance it with functionality.
 Currently implemented:
 
-* 	Modifying commit hashes in the dashboard view to fetch a diff of the specific commit.
+*   Modifying commit hashes in the dashboard view to fetch a diff of the specific commit.
 
 
 Requirements

@@ -5,7 +5,7 @@
 </Directory>
 
 <VirtualHost 127.0.01:80>
-	DocumentRoot /var/www/crucible.example.com/web/
+    DocumentRoot /var/www/crucible.example.com/web/
 
     ServerName crucible.example.com
     ServerAdmin hostmaster@example.com
@@ -23,7 +23,7 @@
 
     Substitute "s|</head>|<script type=\"text/javascript\" src=\"/hook/hook.pack.js\"></script></head>|i"
 
-    Alias /hook 	/var/www/crucible.example.com/web
+    Alias /hook     /var/www/crucible.example.com/web
 
     <Directory /var/www/crucible.example.com/web>
         AllowOverride All
