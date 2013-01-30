@@ -21,6 +21,6 @@ else
 fi
 
 # add styles
-echo "\$(document).ready(function() { \$('<style type=\"text/css\">" >> $ROOT/web/hook.pack.js
-tr -d '\n' < $ROOT/src/vendor/highlight/solarized_light.css >> $ROOT/web/hook.pack.js 
-echo "</style>').appendTo(\$('head')});" >> $ROOT/web/hook.pack.js
+echo -n "jQuery(document).ready(function(\$) { \$('<style type=\"text/css\">" >> $DEST
+tr -d '\n' < $ROOT/src/vendor/solarized/solarized_light.css >> $DEST
+echo "</style>').appendTo(\$('head')); });" >> $DEST

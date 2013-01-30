@@ -5,7 +5,7 @@
  * @author      Harald Lapp <harald@octris.org>
  */
 /**/
-;(function() {
+;(function($) {
     /*
      * Initialization.
      */
@@ -87,4 +87,4 @@
     $(document).ready(function() {
         rewrite();
     });
-})();
+})(jQuery);
