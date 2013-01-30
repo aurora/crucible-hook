@@ -1,8 +1,17 @@
+<Directory /var/www/crucible.example.com>
+    AllowOverride None
+    Order Deny,Allow
+    Deny from all
+</Directory>
+
 <VirtualHost 127.0.01:80>
+	DocumentRoot /var/www/crucible.example.com/web/
+
     ServerName crucible.example.com
     ServerAdmin hostmaster@example.com
 
     ProxyPreserveHost On
+    ProxyPass /hook/ !
     ProxyPass / http://127.0.0.1:8060/
     ProxyPassReverse / http://127.0.0.1:8060/
 
@@ -12,5 +21,13 @@
     FilterProvider HOOK SUBSTITUTE Content-Type $text/html
     FilterChain +HOOK
 
-    Substitute "s|<body.*?>|<body><h2>test</h2>|i"
+    Substitute "s|</head>|<script type=\"text/javascript\" src=\"/hook/hook.pack.js\"></script></head>|i"
+
+    Alias /hook 	/var/www/crucible.example.com/web
+
+    <Directory /var/www/crucible.example.com/web>
+        AllowOverride All
+        Order allow,deny
+        Allow from all    
+    </Directory>
 </VirtualHost>
