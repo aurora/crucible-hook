@@ -9,8 +9,8 @@
     /*
      * Initialization.
      */
-    var ns     = 'crucible-hook_119af54d-68dd-4915-b5a6-846aa774feca';  // Namespace for accessing vc methods
-    var prefix = '/crucible-hook';                                      // URL prefix
+    var ns     = 'crucible_hook_119af54d_68dd_4915_b5a6_846aa774feca';  // Namespace for accessing vc methods
+    var prefix = '/hook';                                               // URL prefix
     var vc     = {};
 
     /*
