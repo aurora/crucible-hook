@@ -9,10 +9,6 @@ DEPS=(
     $ROOT/src/vendor/highlight/highlight.pack.js
 )
 
-if [[ ! -d $ROOT/web ]]; then
-    mkdir $ROOT/web
-fi
-
 # combine javascripts
 cat /dev/null > $DEST
 
