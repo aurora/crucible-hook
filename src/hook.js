@@ -82,7 +82,7 @@
     }
 
     /*
-     * Perform first rewrite as soon DOM is build.
+     * Perform first rewrite as soon as DOM is build.
      */
     $(document).ready(function() {
         rewrite();
