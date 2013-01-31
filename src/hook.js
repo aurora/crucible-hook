@@ -63,7 +63,7 @@
         var onReadyStateChangeCallback = function() {}
 
         this.onreadystatechange = function() {
-            onReadyStateChangeCallback(arguments);
+            onReadyStateChangeCallback.apply(this, arguments);
 
             if (this.readyState == 4 && this.status == 200 && this.getResponseHeader('content-type').match(/^text\/html/)) {
                 rewrite();
