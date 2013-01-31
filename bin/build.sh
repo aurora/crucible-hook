@@ -14,18 +14,20 @@ if [[ ! -d $ROOT/web ]]; then
 fi
 
 # combine javascripts
-if [[ "$JSMIN" != "" ]]; then
-    jsmin <$ROOT/src/hook.js > $DEST
-else
-    cat $ROOT/src/hook.js > $DEST
-fi
-
-echo "" >> $DEST
+cat /dev/null > $DEST
 
 for i in "${DEPS[@]}"; do 
     cat $i >> $DEST
     echo "" >> $DEST
 done
+
+if [[ "$JSMIN" != "" ]]; then
+    jsmin <$ROOT/src/hook.js >> $DEST
+else
+    cat $ROOT/src/hook.js >> $DEST
+fi
+
+echo "" >> $DEST
 
 # add styles
 echo -n "jQuery(document).ready(function(\$) { \$('<style type=\"text/css\">" >> $DEST
