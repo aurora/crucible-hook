@@ -1,26 +1,24 @@
 body {
     background: #fff;
 }
-
 code {
     display:     block;
     background:  #fafafa;
+    line-height: 1.5em;
     border:      1px solid #aaa;
     padding:     2px;
-    line-height: 1.5em;
 }
 code span {
-    display: block;
 }
 code span.header {
-    background: rgba(65, 131, 196, 0.2);
-}
-code span.deletion {
-    background: #fdd
+    color: #4183c4;
 }
 code span.addition {
-    background: #dfd;
+    color: #a9ca5f;
+}
+code span.deletion {
+    color: #ff0000;
 }
 code span.change {
-    background: #0086b3
+    color: #0086b3
 }

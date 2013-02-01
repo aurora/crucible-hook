@@ -30,9 +30,9 @@
             'success':  function(result) {
                 win.document.write('<html><head><title>' + title + '</title>');
                 win.document.write('<link rel="stylesheet" type="text/css" href="/hook/css/diff.css" />');
-                win.document.write('</head><body><code>');
+                win.document.write('</head><body><pre><code>');
                 win.document.write(hljs.highlight('diff', result).value);
-                win.document.write('</code></body></html>');
+                win.document.write('</code></body></pre></html>');
                 win.document.close();
             }
         })
