@@ -1,0 +1,26 @@
+body {
+    background: #fff;
+}
+
+code {
+    display:     block;
+    background:  #fafafa;
+    border:      1px solid #aaa;
+    padding:     2px;
+    line-height: 1.5em;
+}
+code span {
+    display: block;
+}
+code span.header {
+    background: rgba(65, 131, 196, 0.2);
+}
+code span.deletion {
+    background: #fdd
+}
+code span.addition {
+    background: #dfd;
+}
+code span.change {
+    background: #0086b3
+}
