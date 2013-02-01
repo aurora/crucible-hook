@@ -5,8 +5,8 @@ define('GIT_REPOS', '/var/git');
 if (!isset($_GET['a'])) die('missing "a"');
 
 // repository
-$r = (isset($_GET['r']) && preg_match('/^[^ \/]+\.git$/', ($r = basename($_GET['r'])))
-        ? $r
+$r = (isset($_GET['r']) && preg_match('/^[^ \/]+$/', $_GET['r'])
+        ? $_GET['r']
         : false);
 
 // branch
