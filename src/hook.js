@@ -17,11 +17,23 @@
      * VC related stuff.
      */
     vc.vcDiff = function vcDiff(repository, branch, commit) {
+        var title = 'diff -- ' + repository + ':' + branch + '(' + commit + ')';
+        var win   = window.open(
+            '', 
+            title,
+            'width=1024,height=600,scrollbars=yes,resizeable=yes'
+        );
+
         $.ajax({
             'type':     'GET',
-            'url':      prefix + '/vctool.php?a=diff&amp;r=' + repository + '&amp;b=' + branch + '&amp;c=' + commit,
+            'url':      prefix + '/hook-service.php?a=diff&r=' + repository + '&b=' + branch + '&c=' + commit,
             'success':  function(result) {
-                console.log(result);
+                win.document.write('<html><head><title>' + title + '</title>');
+                win.document.write('<link rel="stylesheet" type="text/css" href="/hook/css/solarized/solarized_light.css" />');
+                win.document.write('</head><body style="background-color: #505050"><pre><code>');
+                win.document.write(hljs.highlight('diff', result).value);
+                win.document.write('</code></pre></body></html>');
+                win.document.close();
             }
         })
     }
